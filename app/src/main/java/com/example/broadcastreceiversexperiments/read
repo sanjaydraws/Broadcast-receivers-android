@@ -1,0 +1,4 @@
+Broadcast receivers
+===================
+
+android can receive and send broadcast messages from the android system and the other android apps
