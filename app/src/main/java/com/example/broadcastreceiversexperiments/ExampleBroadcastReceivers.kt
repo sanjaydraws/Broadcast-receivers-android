@@ -6,17 +6,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.widget.Toast
 
-// register in manifest
-/* when system  events defined in manifest happens(another entry point for app)
-  brodcast triggerred, onReceive() will happen -- implicit broadcast
 
-  static -> to define broadcast reciver in manifest, even if app is not currently running
-
-  explicit broadcast receivers - calling directly by class name
-
- for dynamic receiver -> don't need to define in mainfest
-
- */
 
 class ExampleBroadcastReceivers:BroadcastReceiver (){
 
@@ -33,21 +23,17 @@ class ExampleBroadcastReceivers:BroadcastReceiver (){
 //        }
 
 
-        if(ConnectivityManager.CONNECTIVITY_ACTION == intent?.action){
+        if (ConnectivityManager.CONNECTIVITY_ACTION == intent?.action) {
             val noConnectivity = intent.getBooleanExtra(
-                ConnectivityManager.EXTRA_NO_CONNECTIVITY,false
+                ConnectivityManager.EXTRA_NO_CONNECTIVITY, false
             )
-            if(noConnectivity){
-                // when no connection
-                context?.toast("disconnected" )
-            }else{
-                // have connection
-                context?.toast("connected")
+            if (noConnectivity) {
+                // when no have connection
+                Toast.makeText(context, "Disconnected", Toast.LENGTH_SHORT).show()
+            } else {
+                // when have connection
+                Toast.makeText(context, "Connected", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
     }
-
 }

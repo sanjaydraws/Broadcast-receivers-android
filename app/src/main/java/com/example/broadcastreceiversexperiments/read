@@ -1,4 +1,24 @@
 Broadcast receivers
 ===================
+broadcast receivers helps our app in communicating with android os an other apps 
+
 
 android can receive and send broadcast messages from the android system and the other android apps
+// register in manifest
+/* when system  events defined in manifest happens(another entry point for app)
+  brodcast triggerred, onReceive() will happen -- implicit broadcast
+
+  static -> to define broadcast reciver in manifest, even if app is not currently running
+
+
+
+
+  explicit broadcast receivers - calling directly by class name
+
+
+=========================================================
+ for dynamic receiver -> don't need to define in mainfest
+
+// if want broadcast receiver active as long as whole app is running -  register broadcast receiver in  onCreate of Application class
+    // if  want broadcast receive active in background - register broadcast receiver in on create and unregister on onDestroy - keep active lifecycle of activity
+
