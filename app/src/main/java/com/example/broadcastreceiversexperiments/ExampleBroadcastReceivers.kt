@@ -14,7 +14,7 @@ import android.widget.Toast
 
   explicit broadcast receivers - calling directly by class name
 
- for dynamic receiver -> don't need to define in mainfest , comment it
+ for dynamic receiver -> don't need to define in mainfest
 
  */
 

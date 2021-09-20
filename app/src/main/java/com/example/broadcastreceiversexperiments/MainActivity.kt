@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
-    // register broadcast receiver
+    // register broadcast receiver (dynamic)
     val exampleBroadcastReceivers by lazy{
         ExampleBroadcastReceivers()
     }
@@ -29,8 +29,9 @@ class MainActivity : AppCompatActivity() {
         unregisterReceiver(exampleBroadcastReceivers) // trigger when app goes in background
     }
 
-    // if want broadcast receiver active as long as whole app is running -
-   // register broadcast receiver in  onCreate of Application class
+
+    // if want broadcast receiver active as long as whole app is running -  register broadcast receiver in  onCreate of Application class
+    // if  want broadcast receive active in background - register broadcast receiver in on create and unregister on onDestroy - keep active lifecycle of activity
 }
 
 
