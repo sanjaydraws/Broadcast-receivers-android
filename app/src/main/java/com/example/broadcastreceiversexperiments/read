@@ -2,3 +2,22 @@ Broadcast receivers
 ===================
 
 android can receive and send broadcast messages from the android system and the other android apps
+
+
+
+Delivering a Broadcast
+
+A broadcast is a message that any app can receive. In android,
+ the system delivers various broadcast system events like device starts charging, disable or enable airplane mode, etc.
+
+intent -
+The intent is a messaging object which tells what kind of action to be performed.
+The intent’s most significant use is the launching of the activity
+
+explicit intent - > In explicit intent user knows about all the things like after clicking a button which activity will start and Explicit intents are used for communication inside the application
+implicit intent ->which allows a component from another app to handle.when you tap the share button in any app you can see the Gmail, Bluetooth, and other sharing app options.
+
+intent filter ->
+
+implicit intent uses the intent filter to serve the user request
+The intent filter specifies the types of intents that an activity, service, or broadcast receiver can respond.
