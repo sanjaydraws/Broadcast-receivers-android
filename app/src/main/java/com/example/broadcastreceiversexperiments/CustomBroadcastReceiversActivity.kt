@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.example.broadcastreceiversexperiments.broadcastreceivers.CustomBroadcastReceivers
+import com.example.broadcastreceiversexperiments.databinding.ActivityCustomBroadcastReceiversBinding
 import com.example.broadcastreceiversexperiments.databinding.ActivityDynamicBroadcastReceiversBinding
 
 class CustomBroadcastReceiversActivity : AppCompatActivity() {
-    var binding: ActivityDynamicBroadcastReceiversBinding? = null
+    var binding: ActivityCustomBroadcastReceiversBinding? = null
     val customBroadcastReceivers by lazy{
         CustomBroadcastReceivers()
     }
@@ -28,7 +29,7 @@ class CustomBroadcastReceiversActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDynamicBroadcastReceiversBinding.inflate(LayoutInflater.from(this)).apply {
+        binding = ActivityCustomBroadcastReceiversBinding.inflate(LayoutInflater.from(this)).apply {
             setContentView(root)
         }
         val filter = IntentFilter(constants.COM_EXAMPLE_EXAMPLE_ACTION);

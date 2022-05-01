@@ -1,6 +1,5 @@
-Broadcast receivers
-===================
-
+Broadcast receivers - app Component and this can listen different events(wifi connectivity changes, when get sms)
+===================  can send broadcast to our own apps
 android can receive and send broadcast messages from the android system and the other android apps
 
 
@@ -21,3 +20,55 @@ intent filter ->
 
 implicit intent uses the intent filter to serve the user request
 The intent filter specifies the types of intents that an activity, service, or broadcast receiver can respond.
+
+
+/* when system  events defined in manifest happens(another entry point for app)
+  brodcast triggerred, onReceive() will happen -- implicit broadcast
+
+  static -> to define broadcast reciver in manifest, even if app is not currently running, that listen implicit broadcast
+  Conectivty changes -> api level more than 24 not if define in manifest (because low memory )
+   not working after 25 if register in manifest because battery low
+
+  explicit broadcast receivers - calling directly by class name
+
+=========================
+ for dynamic receiver -> don't need to define in mainfest,define java class in context of our application
+ and broadcast receiver only will live as long as where register on
+ particular  context. so the app can listen event when app is running in background if stops can't listen
+
+ * want to keep active in even app in background  register on onCreate and  unregister on onDestroy
+ * this would keep broadcast receiver live of the lifecycle of activity
+ *
+ * if want to active whole app is running register in onCreate of application class
+
+
+
+ ========================================================
+
+ */
+
+
+implicit Br -> app and android system itself send a broadcast with action string
+               and any broadcast receivers that wants to receive that broadcast has to register this particualr string
+               with an intent filter
+
+               since oreo most of these implicit broadcast receivers only works if we register them dynamically
+               and the lifecycle of our app which means in order to receive this broadcast our app has already  be running
+
+               before we could also register this broadcast receiver in manifest file statically ,this way receive them even if our app is not running
+               in which case system would starts our app , only for reacting to broadcast
+               (But this limitation will not apply to explicit broadcast receivers)
+
+explicit Br-> doesn't define action,specified broadcast receiver directly that want to trigger
+             this broadcast receiver can be our own app and another app
+
+
+Custom Br -> for just listening system broadcast we can also send and receive our very own broadcast
+            this can be explicit broadcast(means specified a component that we want to trigger directly so no other br will trigger)
+            or can send implicit br  which is same as the system br where we just define action
+            then ever br wants to receive this br we have to set intent filter with the same
+            action on it
+
+
+
+

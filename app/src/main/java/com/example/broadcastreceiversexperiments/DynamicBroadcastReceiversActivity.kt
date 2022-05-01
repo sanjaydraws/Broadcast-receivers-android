@@ -11,6 +11,16 @@ import com.example.broadcastreceiversexperiments.broadcastreceivers.DynamicBroad
 import com.example.broadcastreceiversexperiments.databinding.ActivityDynamicBroadcastReceiversBinding
 // if want broadcast receiver active as long as whole app is running -
 // register broadcast receiver in  onCreate of Application class
+
+
+/**
+ *
+ * want to keep active in even app in background  register on onCreate and  unregister on onDestroy
+ * this would keep broadcast receiver live of the lifecycle of activity
+ *
+ * if want to active whole app is running register in onCreate of application class
+ * */
+
 class DynamicBroadcastReceiversActivity : AppCompatActivity() {
     var binding:ActivityDynamicBroadcastReceiversBinding? = null
     val dynamicBroadcastReceivers by lazy{
@@ -31,6 +41,8 @@ class DynamicBroadcastReceiversActivity : AppCompatActivity() {
         binding = ActivityDynamicBroadcastReceiversBinding.inflate(LayoutInflater.from(this)).apply {
             setContentView(root)
         }
+//        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+//        registerReceiver(dynamicBroadcastReceivers, filter)
     }
 
     override fun onStart() {
@@ -46,6 +58,11 @@ class DynamicBroadcastReceiversActivity : AppCompatActivity() {
         super.onStop()
         // trigger when app goes in background
         unregisterReceiver(dynamicBroadcastReceivers)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        unregisterReceiver(dynamicBroadcastReceivers)
     }
 
 }

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BroadcastReceiversExperiments">
         <activity
+            android:name=".ExplicitBroadcastReceiversActivity"
+            android:exported="false" />
+        <activity
             android:name=".CustomBroadcastReceiversActivity"
             android:exported="false" />
         <activity
@@ -28,6 +31,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--        android:exported="true" means it will triggered by another app  -->
+        <receiver android:name=".broadcastreceivers.ExampleExplicitBroadcastReceivers"
+            android:exported="true"/>
+        <receiver android:name=".broadcastreceivers.ExampleExplicitBroadcastReceivers2">
+            <intent-filter >
+                <action android:name="com.example.EXAMPLE_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcastreceivers.ExampleExplicitBroadcastReceivers3">
+            <intent-filter >
+                <action android:name="com.example.EXAMPLE_ACTION"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

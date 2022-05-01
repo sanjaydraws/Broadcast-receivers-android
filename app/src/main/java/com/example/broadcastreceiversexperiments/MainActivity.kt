@@ -1,11 +1,9 @@
 package com.example.broadcastreceiversexperiments
 
-import android.content.IntentFilter
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import com.example.broadcastreceiversexperiments.databinding.ActivityDynamicBroadcastReceiversBinding
+import com.example.broadcastreceiversexperiments.broadcastreceivers.ExampleBroadcastReceivers
 import com.example.broadcastreceiversexperiments.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding?.textDetectWifiState?.setOnClickListener {
             DetectWifiStateActivity.start(this)
+        }
+        binding?.textCustomBr?.setOnClickListener {
+            CustomBroadcastReceiversActivity.start(this)
         }
     }
 

@@ -29,6 +29,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dynamicBr" />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/textCustomBr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Custom BR"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDetectWifiState" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

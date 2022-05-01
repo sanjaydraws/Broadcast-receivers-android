@@ -1,4 +1,4 @@
-package com.example.broadcastreceiversexperiments
+package com.example.broadcastreceiversexperiments.broadcastreceivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -17,7 +17,7 @@ import android.widget.Toast
  for dynamic receiver -> don't need to define in mainfest , comment it
 
  */
-
+// example broadcast receivers
 class ExampleBroadcastReceivers:BroadcastReceiver (){
 
 
